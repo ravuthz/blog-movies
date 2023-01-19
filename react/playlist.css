@@ -1,0 +1,45 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css");
+
+.player .video {
+  position: relative;
+  padding-bottom: 56.25%;
+}
+
+.player .video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.player .controls {
+  background-color: grey;
+}
+
+.player .controls .buttons {
+  width: 360px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.player .controls button {
+  margin: 5px;
+  width: 70px;
+  height: 40px;
+}
+
+.player .playlist {
+  background-color: lightblue;
+}
+
+.player .playlist button {
+  width: 9%;
+  margin: 0.5%;
+  height: 40px;
+}
+
+.player .playlist .playing {
+  color: red;
+}

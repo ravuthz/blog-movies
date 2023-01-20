@@ -12,7 +12,7 @@ const VideoPlayer = ({ playlist }) => {
 
   const handleItemClick = (index) => {
     setCurrent(index);
-    window.scrollTo({ top: 200, left: 0, behavior: "smooth" });
+    window.scrollTo({ top: 100, left: 0, behavior: "smooth" });
   };
 
   const handleItemIndex = (index) => {

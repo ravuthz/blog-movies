@@ -6,20 +6,24 @@
 
   const fetchMovies = async () => {
     const url =
-      "https://raw.githubusercontent.com/ravuthz/blog-movies/master/movies-2023-01-14.json";
+      "//cdn.jsdelivr.net/gh/ravuthz/blog-movies/movies-2023-01-14.json";
     return fetch(url).then((res) => res.json());
   };
 
   const findMovie = async (title) => {
     const results = await fetchMovies();
+    const result1 = results
+      ? results.find((item) => item.title === title)
+      : null;
 
     window.index = 0;
     window.items = [];
-    window.videos = _.find(results, { title: title }).videos || [];
+    window.videos = result1 ? result1.videos : [];
 
     if (isDebug()) {
       console.log("title: ", title);
       console.log("results: ", results);
+      console.log("result1: ", result1);
       console.log("videos: ", window.videos);
     }
 
@@ -79,6 +83,23 @@
     window.index = val;
     updateView();
   };
+
+  $(".buttons").html(`
+    <div class="buttons">
+      <button id="btn-first" onclick="updateIndex(0)">
+        <i class="fa-solid fa-backward"></i>
+      </button>
+      <button id="btn-previous" onclick="updateIndex(index-1)">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <button id="btn-next" onclick="updateIndex(index+1)">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+      <button id="btn-last" onclick="updateIndex(items.length-1)">
+        <i class="fa-solid fa-forward"></i>
+      </button>
+    </div>
+  `);
 
   window.findMovie = findMovie;
   window.clickIndex = clickIndex;

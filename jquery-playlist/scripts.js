@@ -91,7 +91,7 @@
     const $title = $("#video-title");
 
     if ($title.length > 0) {
-      $(".buttons").html(`
+      $(".player > .controls").html(`
         <div class="buttons">
           <button id="btn-first" onclick="updateIndex(0)">
             <i class="fa-solid fa-backward"></i>

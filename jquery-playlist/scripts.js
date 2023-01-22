@@ -87,22 +87,29 @@
     updateView();
   };
 
-  $(".buttons").html(`
-    <div class="buttons">
-      <button id="btn-first" onclick="updateIndex(0)">
-        <i class="fa-solid fa-backward"></i>
-      </button>
-      <button id="btn-previous" onclick="updateIndex(index-1)">
-        <i class="fa-solid fa-chevron-left"></i>
-      </button>
-      <button id="btn-next" onclick="updateIndex(index+1)">
-        <i class="fa-solid fa-chevron-right"></i>
-      </button>
-      <button id="btn-last" onclick="updateIndex(items.length-1)">
-        <i class="fa-solid fa-forward"></i>
-      </button>
-    </div>
-  `);
+  $(function () {
+    const $title = $("#video-title");
+
+    if ($title.length > 0) {
+      $(".buttons").html(`
+        <div class="buttons">
+          <button id="btn-first" onclick="updateIndex(0)">
+            <i class="fa-solid fa-backward"></i>
+          </button>
+          <button id="btn-previous" onclick="updateIndex(index-1)">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button id="btn-next" onclick="updateIndex(index+1)">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+          <button id="btn-last" onclick="updateIndex(items.length-1)">
+            <i class="fa-solid fa-forward"></i>
+          </button>
+        </div>
+      `);
+      findMovie($title.text().trim());
+    }
+  });
 
   window.findMovie = findMovie;
   window.clickIndex = clickIndex;

@@ -31,12 +31,14 @@
   };
 
   function updateView() {
-    items = window.videos.map(
-      ({ file, title }, idx) =>
-        `<button data-src="${file}" data-title="${title}" class="${
-          window.index === idx ? "playing" : ""
-        }" onclick="clickIndex(${idx})">${idx + 1}</button>`
-    );
+    items = window.videos.map(({ file, title }, idx) => {
+      const disabled = window.index === idx ? "disabled" : "";
+      const classActive = window.index === idx ? "playing" : "";
+
+      return `<button class="btn btn-primary" data-src="${file}" data-title="${title}" class="${classActive}" onclick="clickIndex(${idx})" ${disabled}>${
+        idx + 1
+      }</button>`;
+    });
 
     $("#btn-first").removeAttr("disabled");
     $("#btn-previous").removeAttr("disabled");
@@ -88,12 +90,12 @@
     const $title = $("#video-title");
 
     if ($title.length > 0) {
-       $(".player > #video-content").html(`
+      $(".player > #video-content").html(`
         <div class="video">
           <iframe
             id="video-frame"
-            width="853"
-            height="480"
+            width="360"
+            height="240"
             frameborder="0"
             allow="autoplay"
             allowfullscreen
@@ -101,22 +103,23 @@
         </div>
         <div class="controls">
           <div class="buttons">
-            <button id="btn-first" onclick="updateIndex(0)">
+            <button class="btn btn-primary" id="btn-first" onclick="updateIndex(0)">
               <i class="fa-solid fa-backward"></i>
             </button>
-            <button id="btn-previous" onclick="updateIndex(index-1)">
+            <button class="btn btn-primary" id="btn-previous" onclick="updateIndex(index-1)">
               <i class="fa-solid fa-chevron-left"></i>
             </button>
-            <button id="btn-next" onclick="updateIndex(index+1)">
+            <button class="btn btn-primary" id="btn-next" onclick="updateIndex(index+1)">
               <i class="fa-solid fa-chevron-right"></i>
             </button>
-            <button id="btn-last" onclick="updateIndex(items.length-1)">
+            <button class="btn btn-primary" id="btn-last" onclick="updateIndex(items.length-1)">
               <i class="fa-solid fa-forward"></i>
             </button>
           </div>
         </div>
         <div class="playlist"></div>
       `);
+
       findMovie($title.text().trim());
     }
   });

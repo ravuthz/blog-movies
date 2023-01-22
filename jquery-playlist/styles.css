@@ -1,11 +1,12 @@
 /* <![CDATA[ */
 .player {
   margin: 0;
-  padding: 10px;
+  padding: 0;
   background-color: #2c3e50;
 }
 .player #video-title {
   color: #fff;
+  padding: 10px;
 }
 .player .video {
   position: relative;
@@ -22,7 +23,6 @@
 
 .player .controls {
   background-color: #2c3e50;
-  width: 360px;
   text-align: center;
   margin: 0 auto;
   padding: 0;
@@ -30,20 +30,15 @@
 
 .player .controls button {
   margin: 10px 5px;
-  width: 70px;
-  height: 40px;
 }
 
 .player .playlist {
-  /* background-color: #34495e; */
   background-color: #bdc3c7;
   padding: 10px 5px;
 }
 
 .player .playlist button {
-  width: 9%;
-  margin: 0.5%;
-  height: 40px;
+  margin: 5px;
 }
 
 .player .playlist .playing {

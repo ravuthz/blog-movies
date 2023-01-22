@@ -88,21 +88,34 @@
     const $title = $("#video-title");
 
     if ($title.length > 0) {
-      $(".player > .controls").html(`
-        <div class="buttons">
-          <button id="btn-first" onclick="updateIndex(0)">
-            <i class="fa-solid fa-backward"></i>
-          </button>
-          <button id="btn-previous" onclick="updateIndex(index-1)">
-            <i class="fa-solid fa-chevron-left"></i>
-          </button>
-          <button id="btn-next" onclick="updateIndex(index+1)">
-            <i class="fa-solid fa-chevron-right"></i>
-          </button>
-          <button id="btn-last" onclick="updateIndex(items.length-1)">
-            <i class="fa-solid fa-forward"></i>
-          </button>
+       $(".player > #video-content").html(`
+        <div class="video">
+          <iframe
+            id="video-frame"
+            width="853"
+            height="480"
+            frameborder="0"
+            allow="autoplay"
+            allowfullscreen
+          ></iframe>
         </div>
+        <div class="controls">
+          <div class="buttons">
+            <button id="btn-first" onclick="updateIndex(0)">
+              <i class="fa-solid fa-backward"></i>
+            </button>
+            <button id="btn-previous" onclick="updateIndex(index-1)">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button id="btn-next" onclick="updateIndex(index+1)">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+            <button id="btn-last" onclick="updateIndex(items.length-1)">
+              <i class="fa-solid fa-forward"></i>
+            </button>
+          </div>
+        </div>
+        <div class="playlist"></div>
       `);
       findMovie($title.text().trim());
     }
